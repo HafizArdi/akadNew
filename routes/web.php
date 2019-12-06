@@ -91,6 +91,6 @@ Route::post('/updateLaporanKades/{id}','kadesController@updateLaporanKades');
 Route::get('/deleteLaporanKades/{id}','kadesController@deleteLaporanKades');
 
 //message admin
-Route::get('/message', 'adminController@message');
-Route::get('/message/{id}', 'adminController@showMessage');
-Route::get('/message/getMessage/{id}', 'adminController@getMessage');
+Route::get('/chat', 'adminController@chat')->name('chat.index');
+Route::get('/chat/{id}', 'adminController@showChat')->name('chat.show');
+Route::get('/chat/getChat/{id}', 'adminController@getChat')->middleware('auth');

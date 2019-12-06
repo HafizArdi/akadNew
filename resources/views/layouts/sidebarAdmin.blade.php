@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="userId" content="{{ Auth::check() ? Auth::user()->id : 'null' }}">
 	<title>AKAD</title>
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,8 +16,8 @@
 	<link href="{{ url('mdb/css/style.min.css')}}" rel="stylesheet">
 	@yield('extrahead')
 </head>
-
 <body class="grey lighten-3">
+<div id="app">
 <!--Main Navigation-->
 <header>
 
@@ -53,7 +54,7 @@
 				<ul class="navbar-nav nav-flex-icons">
 					<li class="nav-item">
 						<li class="nav-item">
-							<a class="nav-link waves-effect" href="{{ url('/message') }}"><i class="fa fa-paper-plane-o mr-2"></i>Message</a>
+							<a class="nav-link waves-effect" href="{{ route('chat.index') }}"><i class="fa fa-paper-plane-o mr-2"></i>Message</a>
 						</li>
 						<a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" class="nav-link waves-effect">
@@ -100,6 +101,7 @@
 
 </header>
 @yield('content')
+
 <!--Main Navigation-->
 
 <!--Main layout-->
@@ -210,5 +212,6 @@
 
 </script>
 @yield('extrascript')
+</div>
 </body>
 </html>

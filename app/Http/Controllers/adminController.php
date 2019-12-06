@@ -227,22 +227,23 @@ class adminController extends Controller{
         return redirect()->back();
     }
 
-    public function message(){
+    public function chat(){
         $chat = Auth::user()->friends();
         return view ('message', compact('chat'));
     }
 
-    public function showMessage($id){
+    public function showChat($id){
         $view=User::WHERE('id',$id)->orderBy('created_at','DESC')->get();
         return view('showMessage', compact('view'));
     }
 
-    public function getMessage($id){
+    public function getChat($id){
         $chats = Chat::where(function ($query) use ($id){
             $query->where('user_id','=',Auth::user()->id)->where('friend_id','=',$id);
         })->orWhere(function ($query) use ($id){
             $query->where('user_id','=',$id)->where('friend_id','=',Auth::user()->id);
         })->get();
+        
         return $chats;
     }
 }

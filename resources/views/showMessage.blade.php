@@ -13,7 +13,7 @@
                 <div class="card mb-4 wow fadeIn">
                     <div class="card-body d-sm-flex justify-content-between">
                         <h4 class="mb-2 mb-sm-0 pt-1">
-                            <a href="{{url('/message')}}"><i class="fa fa-arrow-left"></i></a>
+                            <a href="{{ route('chat.index') }}"><i class="fa fa-arrow-left"></i></a>
                             <span> {{ $data->name }} </span>
                         </h4>
                     </div>
@@ -25,9 +25,7 @@
                         <div class="card">
                             <div class="card direct-chat direct-chat-warning">
                                 <div class="card-body">
-                                 
-                    
-                                   
+                                    <chat v-bind:chats="chats"></chat>
                                     <!-- <div class="direct-chat-messages">
                                         <div class="direct-chat-msg">
                                             <div class="direct-chat-infos clearfix">
@@ -70,7 +68,6 @@
                                             </div>
                                         </div>
                                     </div> -->
-                                   
                                 </div>
                                 <div class="card-footer">
                                     <!-- <form action="#" method="post">

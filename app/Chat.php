@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Chat extends Model{
-    protected $fillable = ['chat'];
+    protected $fillable = ['user_id', 'friend_id', 'chat'];
 
     public function user(){
         return $this->belongsTo(User::class);

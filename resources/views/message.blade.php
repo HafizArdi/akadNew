@@ -53,7 +53,7 @@
                                                     <img src="image/{{$data->foto}}" alt="Demo Avatar John Doe" class="img-responsive" style="width:60px;">
                                                 </div>
                                                 <div class="media-body">
-                                                    <a href="{{url('/message/'.$data->id)}}"><h5 class="media-heading">{{$data->name}}</h5></a>
+                                                    <a href="{{ route('chat.show', $data->id) }}"><h5 class="media-heading">{{$data->name}}</h5></a>
                                                     <span><small><i>{{$data->chat}}</i></small></span>
                                                     <br>
                                                 </div>
